@@ -43,33 +43,33 @@ public class DesignTacoControllerTest {
   @BeforeEach
   public void setup() {
     ingredients = Arrays.asList(
-      new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
-      new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
-      new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
-      new Ingredient("CARN", "Carnitas", Type.PROTEIN),
-      new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
-      new Ingredient("LETC", "Lettuce", Type.VEGGIES),
-      new Ingredient("CHED", "Cheddar", Type.CHEESE),
-      new Ingredient("JACK", "Monterrey Jack", Type.CHEESE),
-      new Ingredient("SLSA", "Salsa", Type.SAUCE),
-      new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
+      new Ingredient("FLTO", "Flour Tortilla", Type.WRAP, null),
+      new Ingredient("COTO", "Corn Tortilla", Type.WRAP, null),
+      new Ingredient("GRBF", "Ground Beef", Type.PROTEIN, null),
+      new Ingredient("CARN", "Carnitas", Type.PROTEIN, null),
+      new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES, null),
+      new Ingredient("LETC", "Lettuce", Type.VEGGIES, null),
+      new Ingredient("CHED", "Cheddar", Type.CHEESE, null),
+      new Ingredient("JACK", "Monterrey Jack", Type.CHEESE, null),
+      new Ingredient("SLSA", "Salsa", Type.SAUCE, null),
+      new Ingredient("SRCR", "Sour Cream", Type.SAUCE, null)
     );
 
     when(ingredientRepository.findAll())
         .thenReturn(ingredients);
 
-    when(ingredientRepository.findById("FLTO")).thenReturn(Optional.of(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP)));
-    when(ingredientRepository.findById("GRBF")).thenReturn(Optional.of(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN)));
-    when(ingredientRepository.findById("CHED")).thenReturn(Optional.of(new Ingredient("CHED", "Cheddar", Type.CHEESE)));
+    when(ingredientRepository.findById("FLTO")).thenReturn(Optional.of(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP, null)));
+    when(ingredientRepository.findById("GRBF")).thenReturn(Optional.of(new Ingredient("GRBF", "Ground Beef", Type.PROTEIN, null)));
+    when(ingredientRepository.findById("CHED")).thenReturn(Optional.of(new Ingredient("CHED", "Cheddar", Type.CHEESE, null)));
     
     design = new Taco();
     design.setName("Test Taco");
 
     design.setIngredients(
         Arrays.asList(
-            new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
-            new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
-            new Ingredient("CHED", "Cheddar", Type.CHEESE)
+            new Ingredient("FLTO", "Flour Tortilla", Type.WRAP, null),
+            new Ingredient("GRBF", "Ground Beef", Type.PROTEIN, null),
+            new Ingredient("CHED", "Cheddar", Type.CHEESE, null)
           )
         );
   }

@@ -3,6 +3,7 @@ package tacos;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.math.BigDecimal;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,4 +37,12 @@ public class Taco {
     this.ingredients.add(ingredient);
   }
 
+  public BigDecimal getPrice() {
+    BigDecimal totalPrice = BigDecimal.ZERO;
+    for (Ingredient ingredient : ingredients) {
+        totalPrice = totalPrice.add(ingredient.getPrice());
+    }
+    return totalPrice;
+  }
 }
+
